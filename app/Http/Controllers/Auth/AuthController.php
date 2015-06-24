@@ -6,9 +6,12 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 
 class AuthController extends Controller
 {
+    
+    
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -21,6 +24,24 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers;
+    
+    
+    public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password]))
+        {
+            return redirect()->intended('dashboard');
+        }
+        
+        return redirect()->back()->with('Message','LoginFailed');
+    }
+    
+    
+    public function getLogout() {
+        Auth::logout();
+    return redirect("/auth/login");
+        
+    }
 
     /**
      * Create a new authentication controller instance.

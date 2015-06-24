@@ -13,6 +13,10 @@ class UserController extends Controller
     
     
     function __construct() {
+        
+        $this->beforeFilter('auth', array());
+        
+    
          $this->contact = new \App\Contact();
     }
     /**
@@ -97,16 +101,20 @@ class UserController extends Controller
      */
     public function home($id=NULL)
     {
+      
         $user = (Auth::user()->name);
         $greeting = trans('Hi.. ').ucfirst($user);
-       $selected  = NULL;
+        $selected  = NULL;
         $contacts = ($this->contact->get());
 
         if(!empty($id)){
             
             $selected =  $this->contact->whereId($id)->first();
            
+        }else{
+            $selected =  $this->contact->get()->first();
         }
+      
        return view('user/home',compact('contacts','selected','id','greeting'));
     }
 }
