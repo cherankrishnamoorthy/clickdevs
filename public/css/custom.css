@@ -1,0 +1,158 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 22, 2015, 8:54:59 AM
+    Author     : Admin
+*/
+
+body{
+font-family: 'Lato';
+
+}
+
+.loginBox{
+
+    padding:100px;background-image: url('/img/leather.png');
+    border: 10px solid transparent;
+    border-image: url('/img/stich.png') 25 30 10 20 repeat stretch;
+    
+    
+    border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 1px dotted #523914;
+   margin-top:150px;
+   text-align: center;
+}
+
+.registerBox{
+    margin-top:100px;
+    padding-top:50px;
+}
+
+.btn-leather{
+  background: #D8792C;
+  background-image: -webkit-linear-gradient(top, #D8792C, #ebaa05);
+  background-image: -moz-linear-gradient(top, #D8792C, #ebaa05);
+  background-image: -ms-linear-gradient(top, #D8792C, #ebaa05);
+  background-image: -o-linear-gradient(top, #D8792C, #ebaa05);
+  background-image: linear-gradient(to bottom, #D8792C, #ebaa05);
+  -webkit-border-radius: 52;
+  -moz-border-radius: 52;
+  border-radius: 52px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 19px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-leather:hover {
+  background: #D8792C;
+  background-image: -webkit-linear-gradient(top, #D8792C, #e6884a);
+  background-image: -moz-linear-gradient(top, #D8792C, #e6884a);
+  background-image: -ms-linear-gradient(top, #D8792C, #e6884a);
+  background-image: -o-linear-gradient(top, #D8792C, #e6884a);
+  background-image: linear-gradient(to bottom, #D8792C, #e6884a);
+  text-decoration: none;
+}
+
+.registerLink{
+    color:rgb(168, 41, 41);
+    position: absolute;
+    right:25px;
+    bottom:10px; 
+    
+}
+
+.registerLink a, .registerLink a:visited,.registerLink a:active{
+    color:rgb(168, 41, 41);
+    font-size:1.3em;    
+}
+.registerLink a:hover{
+    color:rgb(123, 16, 16);
+    text-decoration: none;
+     font-weight: bold;
+}
+.loginHomeLink{
+    
+    color: rgb(168, 41, 41);
+    position: absolute;
+    left:15px;
+    top:20px;
+    font-size:1.3em !important;
+}
+.loginHomeLink a, .loginHomeLink a:visited, .loginHomeLink a:active{
+    
+    color: rgb(168, 41, 41);
+}
+.loginHomeLink a:hover{
+  
+    color:rgb(123, 16, 16);
+    text-decoration: none;
+   
+}
+.form-group-lg{
+    margin-bottom:20px;
+}
+
+.logoutBtn{
+    position: absolute;
+    right: 190px;
+    top:40px;
+   
+    z-index: 1000;
+}
+.phonebookPage{
+    padding-left:20px;
+    padding-top:20px;
+    vertical-align: top
+}
+.phonebookPage .contactLabel{
+    min-width: 70px;
+    float:left;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    
+}
+.phonebookPage .contactVal{
+    min-width: 130px;
+    clear:right;
+    font-size: 1em;
+    color:gray;
+     margin-bottom: 20px;
+}
+
+.contactAdd{
+    
+    background-image: url('/img/add_gray.png');
+}
+.contactAdd:hover{
+    
+    background-image: url('/img/add_blue.jpg');
+    cursor: pointer;
+}
+
+.contactEdit{
+    
+    background-image: url('/img/edit_gray.png');
+}
+.contactEdit:hover{
+    
+    background-image: url('/img/edit_blue.jpg');
+     cursor: pointer;
+}
+
+.greeting{
+     position: absolute;
+    right: 290px;
+    top:43px;
+   
+    z-index: 1000;
+    
+}
