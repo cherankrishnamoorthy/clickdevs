@@ -3,6 +3,7 @@
  
 
 // Authentication routes...
+Route::get('/', 'UserController@home');
 Route::get('/home', 'UserController@home');
 Route::get('/home/{id}', 'UserController@home');
  
@@ -22,6 +23,4 @@ $router->resource('contacts'
         //,['except' => ['add']]
         
         );
-
-
 

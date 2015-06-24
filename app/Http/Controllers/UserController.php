@@ -18,6 +18,7 @@ class UserController extends Controller
         
     
          $this->contact = new \App\Contact();
+         $this->middleware('auth', ['only' => ['home', 'create']]);
     }
     /**
      * Display a listing of the resource.
@@ -107,6 +108,7 @@ class UserController extends Controller
         $selected  = NULL;
         $contacts = ($this->contact->get());
 
+    
         if(!empty($id)){
             
             $selected =  $this->contact->whereId($id)->first();

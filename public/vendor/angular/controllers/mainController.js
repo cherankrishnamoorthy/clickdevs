@@ -4,7 +4,7 @@ app.controller('mainCtrl',function($scope,$http,Contact){
     $scope.developer = '@cherankrish';
     $scope.add =  function(id){
         
-        alert(id);
+        window.location ="/contacts/create";
     };
     
     $scope.edit =  function(id){
