@@ -15,12 +15,12 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-
+$router->get('/contacts/store','ContactsController@createcontact');
 
 $router->resource('contacts'
         ,'ContactsController'
-        //,['only' => ['add','edit','view']]
-        //,['except' => ['add']]
+        //,['only' => ['edit','view','destroy','index']]
+       // ,['except' => ['store']]
         
         );
 

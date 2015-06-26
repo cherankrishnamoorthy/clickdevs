@@ -1,5 +1,5 @@
 
-var app = angular.module('phoneBook', [], function($interpolateProvider) {
+var app = angular.module('phoneBook', ['ngRoute'], function($interpolateProvider) {
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
     });
@@ -13,3 +13,27 @@ var app = angular.module('phoneBook', [], function($interpolateProvider) {
 });
 
 
+app.config(function ($routeProvider) {
+  $routeProvider
+    .when('/home/:id', {
+      controller: 'contactsCtrl',
+      templateUrl: '/vendor/angular/views/contact.html'
+    })
+    .when('/contacts/create', {
+      controller: 'contactsCtrl',
+      templateUrl: '/vendor/angular/views/create.html'
+      
+    }).when('/contacts/list', {
+      controller: 'contactsCtrl',
+      templateUrl: '/vendor/angular/views/contact.html'
+      
+    })
+      .when('/contacts/edit/:id', {
+      controller: 'contactsCtrl',
+      templateUrl: '/vendor/angular/views/edit.html'
+      
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});

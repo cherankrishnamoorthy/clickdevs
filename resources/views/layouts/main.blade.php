@@ -21,10 +21,12 @@
         </div>
        {!! Html::script('/vendor/twbs/bootstrap/dist/js/bootstrap.min.js') !!}
        {!! Html::script('/vendor/angular/angular.min.js') !!}
+       {!! Html::script('/vendor/angular/router.es5.min.js',array('text'=>'javascript')) !!}
        
        {!! Html::script('/vendor/angular/phonebook.app.js') !!}
        {!! Html::script('/vendor/angular/services/contactService.js') !!}
        {!! Html::script('/vendor/angular/controllers/mainController.js') !!}
+       {!! Html::script('/vendor/angular/controllers/contactsController.js') !!}
        
     </body>
 </html>

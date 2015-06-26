@@ -7,13 +7,21 @@ app.factory('Contact', function($http){
                     return $http.get('/contacts/');
                 },
                 
-                save: function(contactData){
-                    return $http({
+                getOne: function(id){
+                    return $http.get('/contacts/'+id);
+                },
+                
+                getOneForEdit: function(id){
+                    return $http.get('/contacts/'+id);
+                },
+                save: function(contactData,id){
+                  
+                     return $http({
                         
-                        method: 'POST',
-                        url: '/contacts',
+                        method: 'PATCH',
+                        url: '/contacts/'+id,
                         headers:{'Contant-type' : 'application/x-www-form-urlencoded'},
-                        data:$.param(contactData)
+                        data:contactData
                     });
                 },
                 

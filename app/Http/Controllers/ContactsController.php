@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Auth;
 
 class ContactsController extends Controller
 {
     
     
      function __construct() {
-         $this->contacts = new \App\Contact();
+         $this->contact = new \App\Contact();
     }
     
     
@@ -26,7 +28,7 @@ class ContactsController extends Controller
     {
         
        
-       return Response::json($this->contacts->get());
+       return Response::json($this->contact->where('user_id' , Auth::user()->id)->get());
     }
 
     /**
@@ -34,11 +36,7 @@ class ContactsController extends Controller
      *
      * @return Response
      */
-    public function create()
-    {
-    return view('contacts/create');
-    }
-
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -46,7 +44,15 @@ class ContactsController extends Controller
      */
     public function store()
     {
-        //
+      //  print_r(Input::all());return;
+        
+        $data = Input::all();
+        $data['user_id'] = Auth::user()->id;
+         $res = $this->contact->create($data);
+         if(FALSE != $res){
+             
+             return Response::json(array("insert"=> True));
+         }
     }
 
     /**
@@ -57,7 +63,7 @@ class ContactsController extends Controller
      */
     public function show($id)
     {
-        return Response::json($this->contacts->whereId($id)->first());
+        return Response::json($this->contact->whereId($id)->first());
     }
 
     /**
@@ -77,9 +83,13 @@ class ContactsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update()
     {
-        //
+        
+      
+     $this->contact->where('id',Input::get('id'))->update(Input::all());
+     
+     return Response::json($this->contact->all());
     }
 
     /**
@@ -90,6 +100,8 @@ class ContactsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = $this->contact->find($id);
+        $contact->delete();
+       
     }
 }

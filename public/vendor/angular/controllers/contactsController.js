@@ -1,22 +1,56 @@
-app.controller('mainCtrl',function($scope,$http,Contact){
+app.controller('contactsCtrl',function($scope,$http,Contact,$routeParams,$location){
     
     $scope.appName =  'PhoneBook';
     $scope.developer = '@cherankrish';
-    $scope.add =  function(id){
+    $scope.status = 'Save Contact';
+    $scope.updatestatus = 'Save Contact';
+    $scope.editId = "1";
+    $scope.create =  function(Contact){
         
-        alert(id);
+        $res =  $http({
+                method: 'POST',
+                  url: '/contacts',
+                   headers:{'Contant-type' : 'application/x-www-form-urlencoded'},
+                  data:Contact
+                
+        }).success(function(data){
+           $scope.status = 'Contact Saved';
+        }).error(function(){
+            $scope.status = "Couldn't save";
+        });
+       
     };
     
-    $scope.edit =  function(id){
+    $scope.save=  function(ContactData){
+       
+        Contact.save(ContactData,$scope.editId).success(function(data){
+            $scope.updatestatus = "Updated Success";
         
-        alert(id);
+            
+        }).error(function(){
+            $scope.updatestatus = "Updated Failed";
+            
+        });
     };
     
-    Contact.get()
-        .success(function(data) {
-            $scope.contacts = data;
-           
-        }); 
+    
+    
+
+        if($location.path() ==  "/home/"+$routeParams.id || $location.path() == "/contacts/edit/"+$routeParams.id){
+        Contact.getOneForEdit($routeParams.id).success(function(data){
         
+        $scope.editId = $routeParams.id;
+        $scope.Contact = data;
+       
+         
+       
+    }).success(function(){
+     
+        
+    }).error(function(){
+         
+    });
+        
+       }
         
 });

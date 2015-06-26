@@ -156,3 +156,20 @@ border: 1px dotted #523914;
     z-index: 1000;
     
 }
+
+.deleteIcon{
+    position:absolute;
+    right:8px;
+    top:8px;
+}
+
+.invalidForm{
+    font-size: .8em;
+    color: #66512c;
+    text-transform: uppercase;
+}
+/* Prevents default click */
+
+a[ng-click]{
+    cursor: pointer;
+}

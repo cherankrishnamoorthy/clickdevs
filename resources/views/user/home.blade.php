@@ -55,7 +55,7 @@
    
    
  
-       <a ng-repeat="contact in contacts" ng-href="/home/<% contact.id %>"   class="list-group-item"> <% contact.name%></a>
+           <a ng-repeat="contact in contacts"  ng-href="#/home/<% contact.id %>"   class="list-group-item"> <% contact.name %> <delete-record info="contact"></delete-record></a>
    
 </div>
   
@@ -65,17 +65,9 @@
    </td>
    <td rowspan="2">&nbsp;</td>
    <td rowspan="2" colspan="5"  class="phonebookPage">
+        <div ng-view></div>
        
-       
-       <h3 class="text-center"> {{$selected->name}}</h3>
-       <p class="text-center"> {{$selected->designation}}</p>
-       <br /> 
-       <h5> <p class="contactLabel">{{trans('Work')}}</p> <p class="contactVal">{{$selected->workphone}}</p></h5>
-       <h5> <p class="contactLabel">{{trans('Phone')}}</p><p class="contactVal">{{$selected->phone}}</p></h5>
-       <h5> <p class="contactLabel">{{trans('Email')}}</p><p class="contactVal">{{$selected->email}}</p></h5>
-       <h5> <p class="contactLabel">{{trans('Office')}}</p><p class="contactVal">{{$selected->work_address}}</p></h5>
-       <hr />
-       <h5> <p class="contactLabel">{{trans('Notes')}}</p><br /><br />{{$selected->work_address}}</h5>
+      
    </td>
    <td rowspan="2"><img name="contacts_r3_c13" src="/img/booklayout/contacts_r3_c13.png" width="23" height="606" border="0" id="contacts_r3_c13" alt="" /></td>
    <td rowspan="6"><img name="contacts_r3_c14" src="/img/booklayout/contacts_r3_c14.png" width="1" height="667" border="0" id="contacts_r3_c14" alt="" /></td>
@@ -97,11 +89,11 @@
    <td><img src="/img/booklayout/spacer.gif" width="1" height="8" border="0" alt="" /></td>
   </tr>
   <tr>
-   <td rowspan="2" colspan="2"><img name="contacts_r7_c3" src="/img/booklayout/contacts_r7_c3.png" width="366" height="52" border="0" id="contacts_r7_c3" alt="" /></td>
-   <td class="contactAdd" ng-click="add({{$id}});"></td>
+      <td rowspan="2" colspan="2"><img name="contacts_r7_c3" src="/img/booklayout/contacts_r7_c3.png" width="366" height="52" border="0" id="contacts_r7_c3" alt="" /></a></td>
+      <td class="contactAdd" ng-click="go('/contacts/create')"></td>
    <td rowspan="2"><img name="contacts_r7_c6" src="/img/booklayout/contacts_r7_c6.png" width="21" height="52" border="0" id="contacts_r7_c6" alt="" /></td>
    <td rowspan="2"><img name="contacts_r7_c8" src="/img/booklayout/contacts_r7_c8.png" width="19" height="52" border="0" id="contacts_r7_c8" alt="" /></td>
-   <td style="background-color:#DDDDDD" class="contactEdit" ng-click="edit({{$id}});"></td>
+   <td style="background-color:#DDDDDD" class="contactEdit" ng-click="edit();"></td>
    <td rowspan="2"><img name="contacts_r7_c10" src="/img/booklayout/contacts_r7_c10.png" width="11" height="52" border="0" id="contacts_r7_c10" alt="" /></td>
    <td style="background-color:#DDDDDD"  ><img name="contacts_r7_c11" src="/img/booklayout/contacts_r7_c11.png" width="68" height="38" border="0" id="contacts_r7_c11" alt="" /></td>
    

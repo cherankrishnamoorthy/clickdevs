@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-11">
+            <form name='ContactForm' novalidate>
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control"  ng-model="Contact.name" placeholder="Name" required/>
+                    <span class="invalidForm" ng-show="ContactForm.name.$dirty && ContactForm.name.$invalid">
+                    <span ng-show="ContactForm.name.$error.required">Name is required</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="designation" class="form-control"  ng-model="Contact.designation" placeholder="Designation"/>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="phone" class="form-control"  ng-model="Contact.phone" placeholder="Phone"   min="0" required />
+                    <span class="invalidForm" ng-show="ContactForm.phone.$dirty && ContactForm.phone.$invalid">
+                    <span ng-show="ContactForm.phone.$error.required">Phone number is required</span>
+                    
+                    </span>
+                    <span class="invalidForm" ng-show="ContactForm.phone.$error.number">Only number is allowed.</span>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email"class="form-control"  ng-model="Contact.email" placeholder="Email"/>
+                    <span class="invalidForm"  ng-show="ContactForm.email.$error.email">Not a valid email</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="workphone" class="form-control"  ng-model="Contact.workphone" placeholder="Office Phone"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="work_address" class="form-control"  ng-model="Contact.work_address"placeholder="Office Address" />
+                </div>
+
+                <div class="form-group">
+                    <textarea name="notes" class="form-control"  placeholder="Notes" ng-model="Contact.notes"/></textarea>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" name="save"class="btn btn-default" value="<% status %>"  ng-click="create(Contact)" ng-disabled="ContactForm.name.$error.required || ContactForm.phone.$error.required"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
